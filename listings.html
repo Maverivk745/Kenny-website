@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Listings — Solven Realities UG Ltd.</title>
+<meta name="description" content="Browse residential, rental and land listings across Kampala, Uganda. Filter by location, price and property type.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo_raw.jpg" alt="Solven Realities logo">
+      <div class="brand-text">
+        <div class="name">Solven Realities</div>
+        <div class="sub">UG Limited</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="listings.html" class="active">Listings</a>
+      <a href="services.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="nav-cta">Get In Touch</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Listings</div>
+    <div class="eyebrow">Property Listings</div>
+    <h1>Find your next home or investment.</h1>
+    <p>Browse updated listings across Kampala and filter by location, price and property type.</p>
+  </div>
+</section>
+
+<!-- ===== LISTINGS ===== -->
+<section>
+  <div class="wrap">
+
+    <div class="sample-note">
+      <strong>Sample listings.</strong> The properties below illustrate how live listings will appear. Replace with real units, prices and photos as they become available — see note at the bottom of this page.
+    </div>
+
+    <!-- Search bar -->
+    <div class="search-bar-wrap">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input
+          type="text"
+          id="f-search"
+          placeholder="Search by name, location or type — e.g. &quot;2 bedroom Kampala&quot; or &quot;land for sale&quot;"
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="search-clear" id="search-clear" aria-label="Clear search" style="display:none;">✕</button>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <div class="filter-field">
+        <label for="f-location">Location</label>
+        <select id="f-location">
+          <option value="all">All Locations</option>
+          <option value="Lufuka">Lufuka</option>
+          <option value="Kampala Suburbs">Kampala Suburbs</option>
+          <option value="Greater Kampala">Greater Kampala</option>
+          <option value="Munyonyo">Munyonyo</option>
+          <option value="Mukono">Mukono</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="f-type">Property Type</label>
+        <select id="f-type">
+          <option value="all">All Types</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Villa">Villa / House</option>
+          <option value="Land">Land</option>
+          <option value="Commercial">Commercial</option>
+          <option value="Rental Unit">Rental Unit</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="f-status">Status</label>
+        <select id="f-status">
+          <option value="all">All Status</option>
+          <option value="For Sale">For Sale</option>
+          <option value="For Rent">For Rent</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="f-price">Max Price</label>
+        <select id="f-price">
+          <option value="all">Any Price</option>
+          <option value="5000000">Under 5M (rent/mo)</option>
+          <option value="100000000">Under 100M</option>
+          <option value="500000000">Under 500M</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" id="f-reset">Reset</button>
+    </div>
+
+    <div class="listings-toolbar">
+      <div class="result-count"><strong id="result-count">7</strong> properties found</div>
+      <div class="sort-field">
+        Sort by
+        <select id="f-sort">
+          <option value="default">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="listing-grid" id="listing-grid">
+      <!-- Cards injected by JS from sample data, also present as static fallback below -->
+    </div>
+
+    <div class="listings-empty" id="listings-empty" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <h3>No properties found</h3>
+      <p id="empty-msg">Try adjusting your search or filters.</p>
+      <button class="btn btn-outline" id="empty-reset">Clear All Filters</button>
+    </div>
+
+    <noscript>
+      <p style="padding: 40px 0; color: var(--ink-soft);">Enable JavaScript to use filtering and sorting. Contact us directly for the current listing sheet.</p>
+    </noscript>
+
+  </div>
+</section>
+
+<!-- ===== CTA / NOTE FOR CLIENT ===== -->
+<section class="section-dim">
+  <div class="wrap" style="max-width: 720px;">
+    <div class="eyebrow">For The Solven Realities Team</div>
+    <h2 style="font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--charcoal); margin-bottom: 16px;">Updating these listings</h2>
+    <p style="color: var(--ink-soft); font-size: 14.5px; margin-bottom: 14px;">Each listing is defined in one place inside <code style="background: var(--paper); padding: 2px 6px; border-radius: 2px;">js/listings.js</code> — add a new entry to add a new property, no design work needed. Fields: title, type, status, location, price, specs and an image link.</p>
+    <p style="color: var(--ink-soft); font-size: 14.5px;">When you're ready for owners and tenants to submit or save listings directly, that's the point to move from this static page to a small database-backed system — happy to scope that next.</p>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Don't see what you're looking for?</h2>
+    <p>Tell us your budget and location — we'll match you with options not listed yet.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-outline-light">Send An Inquiry</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="images/logo_raw.jpg" alt="Solven Realities logo">
+          <div class="name">Solven Realities</div>
+        </div>
+        <p class="tagline-foot">"Turning visions into values." Property sales, rentals, management and corporate leasing across Kampala, Uganda.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html">Property Sales &amp; Purchases</a></li>
+          <li><a href="services.html">Rental Services</a></li>
+          <li><a href="services.html">Property Management</a></li>
+          <li><a href="services.html">Investment Guidance</a></li>
+          <li><a href="services.html">Corporate Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Guides</h5>
+        <ul>
+          <li><a href="buyers-guide.html">Buyer's Guide</a></li>
+          <li><a href="tenants-guide.html">Tenant's Guide</a></li>
+          <li><a href="sellers-guide.html">Seller's Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>Lufuka, Kampala (U)</li>
+          <li>+256 708 241948</li>
+          <li>+256 741 504056</li>
+          <li>solvenrealities@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Solven Realities UG Ltd. All rights reserved.</span>
+      <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-use.html">Terms of Use</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/listings.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>
